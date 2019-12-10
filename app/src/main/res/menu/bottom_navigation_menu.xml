@@ -8,6 +8,12 @@
         android:icon="@drawable/ic_ball"
         app:showAsAction="ifRoom"/>
     <item
+        android:id="@+id/team"
+        android:enabled="true"
+        android:title="@string/previous_match"
+        android:icon="@drawable/ic_ball"
+        app:showAsAction="ifRoom"/>
+    <item
         android:id="@+id/fav"
         android:enabled="true"
         android:icon="@drawable/ic_added_fav_24dp"

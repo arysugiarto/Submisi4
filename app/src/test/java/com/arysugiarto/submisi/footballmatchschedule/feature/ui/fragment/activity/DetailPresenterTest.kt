@@ -47,13 +47,15 @@ class DetailPresenterTest {
     @Test
     fun getDetailkandang() {
         mPresenter.getTeamKandang("4328")
-
+        Mockito.verify(repository).getTeams("4328")
     }
 
     @Test
     fun getDetailTandang() {
         mPresenter.getTeamKandang("4328")
-
+        Mockito.verify(repository).getTeams("4328")
     }
 
 }
+
+

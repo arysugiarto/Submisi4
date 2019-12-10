@@ -8,7 +8,9 @@ interface DetailContract {
         fun logoTeamHome(team: Team)
         fun logoTeamAway(team: Team)
         fun setFavoriteState(favList:List<DbFavoriteMatch>)
-//        fun logoTeamHome(team: Team)
+        fun hideLoading()
+        fun showLoading()
+        fun getTeamKandang(id:String)
     }
 
     interface Presenter{

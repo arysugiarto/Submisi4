@@ -20,6 +20,17 @@ import kotlinx.android.synthetic.main.activity_detail.*
 import org.jetbrains.anko.toast
 
 class DetailMatchActivity : AppCompatActivity(), DetailContract.View {
+    override fun getTeamKandang(id: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun hideLoading() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showLoading() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
 
     private var addFavorite: Boolean = false
@@ -53,6 +64,7 @@ class DetailMatchActivity : AppCompatActivity(), DetailContract.View {
             .load(team.strTeamBadge)
             .apply(RequestOptions().placeholder(R.drawable.ic_loading))
             .into(kandang)
+
     }
     override fun logoTeamAway(team: Team) {
         Glide.with(applicationContext)
