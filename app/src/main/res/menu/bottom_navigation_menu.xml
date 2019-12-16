@@ -10,7 +10,7 @@
     <item
         android:id="@+id/team"
         android:enabled="true"
-        android:title="@string/previous_match"
+        android:title="@string/teams"
         android:icon="@drawable/ic_ball"
         app:showAsAction="ifRoom"/>
     <item

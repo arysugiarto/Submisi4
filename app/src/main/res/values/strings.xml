@@ -29,6 +29,7 @@
     <string name="dateMatch">10 Desember 2019</string>
     <string name="ligagojek">Liga Gojek</string>
     <string name="favorite">Favorite</string>
+    <string name="teams">Team</string>
 
 
     <string-array name="league_name">

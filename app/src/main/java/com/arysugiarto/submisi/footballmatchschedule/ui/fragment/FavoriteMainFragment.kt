@@ -9,10 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.arysugiarto.submisi.footballmatchschedule.R
-import com.arysugiarto.submisi.footballmatchschedule.extensions.hide
-import com.arysugiarto.submisi.footballmatchschedule.extensions.show
 import com.arysugiarto.submisi.footballmatchschedule.ui.fragment.favoritepertandingan.MatchFavoriteFragment
-import kotlinx.android.synthetic.main.fragment_match_favorite.*
+import com.arysugiarto.submisi.footballmatchschedule.ui.fragment.favteam.FavoriteTeamFragment
 
 
 class FavoriteMainFragment : Fragment() {
@@ -29,7 +27,8 @@ class FavoriteMainFragment : Fragment() {
         val pager = view.findViewById<ViewPager>(R.id.pager)
         val tablayout = view.findViewById<TabLayout>(R.id.tabs)
         val adapter = com.arysugiarto.submisi.footballmatchschedule.adapter.PagerAdapter(childFragmentManager)
-        adapter.populateFragment(MatchFavoriteFragment(), "Pertandingan Favorite")
+        adapter.populateFragment(MatchFavoriteFragment(), "Favorite Match")
+        adapter.populateFragment(FavoriteTeamFragment(), "Favorite Team")
         pager.adapter = adapter
         tablayout.setupWithViewPager(pager)
     }

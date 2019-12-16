@@ -1,9 +1,6 @@
 package com.arysugiarto.submisi.footballmatchschedule.api
 
-import com.arysugiarto.submisi.footballmatchschedule.entity.LeagueDetailRespon
-import com.arysugiarto.submisi.footballmatchschedule.entity.Match
-import com.arysugiarto.submisi.footballmatchschedule.entity.SearchedMatches
-import com.arysugiarto.submisi.footballmatchschedule.entity.TeamResponseDetail
+import com.arysugiarto.submisi.footballmatchschedule.entity.*
 import io.reactivex.Flowable
 import retrofit2.Call
 import retrofit2.http.GET
@@ -28,5 +25,15 @@ interface RestApi {
 
     @GET("lookupevent.php")
     fun getEventById(@Query("id") id:String) : Flowable<Match>
+
+
+
+    @GET("searchteams.php")
+    fun getTeamBySearch(@Query("t") query: String) : Flowable<TeamResponseDetail>
+
+    @GET("lookup_all_teams.php")
+    fun getAllTeam(@Query("id") id:String) : Flowable<TeamResponseDetail>
+
+
 
 }
