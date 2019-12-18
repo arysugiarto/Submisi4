@@ -19,7 +19,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="12dp"/>
     <TextView
-        android:id="@+id/teamName"
+        android:id="@+id/nameTeam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="22sp"
@@ -28,36 +28,36 @@
         android:layout_centerHorizontal="true"
         android:textColor="#000000"
         android:textStyle="bold"
-        tools:text="REAL MADRID"/>
+        tools:text="@string/namanya"/>
     <TextView
-        android:id="@+id/tvStadium"
+        android:id="@+id/stadium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/teamName"
+        android:layout_below="@id/nameTeam"
         android:layout_centerHorizontal="true"
         android:textSize="16sp"
         android:textColor="#000000"
-        tools:text="Santiago Bernabeu"/>
+        tools:text="@string/stadium"/>
 
     <TextView
-        android:id="@+id/tvManager"
+        android:id="@+id/manager"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvStadium"
+        android:layout_below="@id/stadium"
         android:layout_centerHorizontal="true"
         android:textSize="14sp"
         android:textColor="#000000"
-        tools:text="Santiago Bernabeu"/>
+        tools:text="@string/managernya"/>
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvManager"
+        android:layout_below="@id/manager"
         android:elevation="4dp"
-        android:id="@+id/ovwContainer">
+        android:id="@+id/previewContainer">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tvManager"
+            android:layout_below="@id/manager"
             android:orientation="vertical"
             android:paddingBottom="12dp">
 
@@ -78,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:id="@+id/teamOverview"
+                android:id="@+id/teamPreview"
                 android:textSize="13sp"
                 android:textColor="#000000"
                 android:text="Team Overview"/>

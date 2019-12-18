@@ -1,9 +1,9 @@
-package com.arysugiarto.submisi.footballmatchschedule.ui.fragment.favteam
+package com.arysugiarto.submisi.footballmatchschedule.ui.fragment.favoriteteam
 
 import com.arysugiarto.submisi.footballmatchschedule.entity.Team
 import com.arysugiarto.submisi.footballmatchschedule.entity.TeamResponseDetail
 import com.arysugiarto.submisi.footballmatchschedule.entity.repository.RepoFavorite
-import com.arysugiarto.submisi.footballmatchschedule.entity.repository.TeamRepositoryImpl
+import com.arysugiarto.submisi.footballmatchschedule.entity.repository.TeamRepository
 import com.arysugiarto.submisi.footballmatchschedule.utils.SchedulerProvider
 import com.rahmat.app.footballclub.feature.favteam.FavoriteTeamContract
 import io.reactivex.disposables.CompositeDisposable
@@ -12,8 +12,8 @@ import java.util.*
 
 
 class FavoriteTeamPresenter(val mView: FavoriteTeamContract.View,
-                            val localRepositoryImpl: RepoFavorite,
-                            val teamRepositoryImpl: TeamRepositoryImpl,
+                            val repoFavorite: RepoFavorite,
+                            val teamRepository: TeamRepository,
                             val scheduler: SchedulerProvider
 ): FavoriteTeamContract.Presenter {
 
@@ -22,10 +22,10 @@ class FavoriteTeamPresenter(val mView: FavoriteTeamContract.View,
 
     override fun getTeamData() {
         mView.showLoading()
-        val teamList = localRepositoryImpl.getTeamFromDb()
+        val teamList = repoFavorite.getTeamData()
         var teamLists: MutableList<Team> = mutableListOf()
         for (fav in teamList){
-            compositeDisposable.add(teamRepositoryImpl.getTeamsDetail(fav.idTeam)
+            compositeDisposable.add(teamRepository.getTeamsDetail(fav.idTeam)
                     .observeOn(scheduler.ui())
                     .subscribeOn(scheduler.io())
                     .subscribeWith(object: ResourceSubscriber<TeamResponseDetail>(){

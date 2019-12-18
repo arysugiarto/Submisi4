@@ -1,21 +1,23 @@
 package com.rahmat.app.footballclub.feature.team
 
 
-import android.content.Intent
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.SearchView
-import android.util.Log
 import android.view.*
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.LinearLayout
+import android.widget.LinearLayout.VERTICAL
 import com.arysugiarto.submisi.footballmatchschedule.R
 import com.arysugiarto.submisi.footballmatchschedule.adapter.TeamAdapter
 import com.arysugiarto.submisi.footballmatchschedule.api.ApiService
 import com.arysugiarto.submisi.footballmatchschedule.api.RestApi
 import com.arysugiarto.submisi.footballmatchschedule.entity.Team
-import com.arysugiarto.submisi.footballmatchschedule.entity.repository.TeamRepositoryImpl
+import com.arysugiarto.submisi.footballmatchschedule.entity.repository.TeamRepository
 import com.arysugiarto.submisi.footballmatchschedule.extensions.hide
 import com.arysugiarto.submisi.footballmatchschedule.extensions.show
 import com.arysugiarto.submisi.footballmatchschedule.utils.AppSchedulerProvider
@@ -23,17 +25,17 @@ import com.arysugiarto.submisi.footballmatchschedule.utils.AppSchedulerProvider
 import kotlinx.android.synthetic.main.fragment_teams.*
 
 
-class TeamsFragment : Fragment(), TeamsContract.View {
+class TeamsFragment : Fragment(), TeamsView.View {
 
     lateinit var leagueName : String
-    lateinit var presenter : TeamsContract.Presenter
+    lateinit var presenter : TeamsView.Presenter
 
     private var teamLists : MutableList<Team> = mutableListOf()
 
     override fun displayTeams(teamList: List<Team>) {
         teamLists.clear()
         teamLists.addAll(teamList)
-        val layoutManager = GridLayoutManager(context, 3)
+        val layoutManager = LinearLayoutManager(context, VERTICAL,false)
         rvTeam.layoutManager = layoutManager
         rvTeam.adapter = TeamAdapter(teamLists, context)
     }
@@ -57,7 +59,7 @@ class TeamsFragment : Fragment(), TeamsContract.View {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         val service = ApiService.getClient().create(RestApi::class.java)
-        val request = TeamRepositoryImpl(service)
+        val request = TeamRepository(service)
         val scheduler = AppSchedulerProvider()
         setHasOptionsMenu(true)
         presenter = TeamsPresenter(this, request, scheduler)

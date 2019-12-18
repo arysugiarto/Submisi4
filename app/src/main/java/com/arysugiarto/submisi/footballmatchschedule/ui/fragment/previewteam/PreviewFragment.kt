@@ -1,4 +1,4 @@
-package com.rahmat.app.footballclub.feature.teamovw
+package com.arysugiarto.submisi.footballmatchschedule.ui.fragment.previewteam
 
 
 import android.os.Bundle
@@ -11,14 +11,14 @@ import com.arysugiarto.submisi.footballmatchschedule.entity.Team
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-import kotlinx.android.synthetic.main.fragment_team_ovw.*
+import kotlinx.android.synthetic.main.fragment_preview.*
 
-class TeamOvwFragment : Fragment() {
+class PreviewFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_team_ovw, container, false)
+        return inflater.inflate(R.layout.fragment_preview, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -34,10 +34,10 @@ class TeamOvwFragment : Fragment() {
                 .apply(RequestOptions().placeholder(R.drawable.ic_loading))
                 .into(imgBadge)
 
-        teamName.text = teamInfo?.strTeam
-        tvManager.text = teamInfo?.strManager
-        tvStadium.text = teamInfo?.strStadium
-        teamOverview.text = teamInfo?.strDescriptionEN
+        nameTeam.text = teamInfo?.strTeam
+        manager.text = teamInfo?.strManager
+        stadium.text = teamInfo?.strStadium
+        teamPreview.text = teamInfo?.strDescriptionEN
     }
 
 

@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.arysugiarto.submisi.footballmatchschedule.R
 import com.arysugiarto.submisi.footballmatchschedule.entity.Team
-import com.arysugiarto.submisi.footballmatchschedule.ui.detail.teamdetail.TeamDetailActivity
+import com.arysugiarto.submisi.footballmatchschedule.ui.detail.teamdetailactivity.DetailTeamActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
@@ -37,7 +37,7 @@ class TeamAdapter(val teamList: List<Team>, val context: Context?): RecyclerView
                     .into(itemView.imgTeam)
 
             itemView.setOnClickListener {
-                itemView.context.startActivity<TeamDetailActivity>("team" to team)
+                itemView.context.startActivity<DetailTeamActivity>("team" to team)
             }
         }
 

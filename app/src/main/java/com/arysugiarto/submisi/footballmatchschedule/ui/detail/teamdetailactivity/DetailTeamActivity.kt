@@ -1,4 +1,4 @@
-package com.arysugiarto.submisi.footballmatchschedule.ui.detail.teamdetail
+package com.arysugiarto.submisi.footballmatchschedule.ui.detail.teamdetailactivity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -8,27 +8,27 @@ import android.view.MenuItem
 import com.arysugiarto.submisi.footballmatchschedule.R
 import com.arysugiarto.submisi.footballmatchschedule.adapter.PagerAdapter
 import com.arysugiarto.submisi.footballmatchschedule.entity.Team
-import com.arysugiarto.submisi.footballmatchschedule.entity.db.FavoriteTeam
+import com.arysugiarto.submisi.footballmatchschedule.entity.db.DbFavoriteTeam
 import com.arysugiarto.submisi.footballmatchschedule.entity.repository.RepoFavorite
+import com.arysugiarto.submisi.footballmatchschedule.ui.fragment.previewteam.PreviewFragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-import com.rahmat.app.footballclub.feature.teamovw.TeamOvwFragment
 import kotlinx.android.synthetic.main.activity_team_detail.*
 import org.jetbrains.anko.toast
 
 
-class TeamDetailActivity : AppCompatActivity(), TeamDetailContract.View {
+class DetailTeamActivity : AppCompatActivity(), DetailTeamView.View {
 
     private var isFavorite: Boolean = false
     private var menuItem: Menu? = null
 
-    override fun setFavoriteState(favList: List<FavoriteTeam>) {
+    override fun setFavoriteState(favList: List<DbFavoriteTeam>) {
         if(!favList.isEmpty()) isFavorite = true
     }
 
     lateinit var team: Team
-    lateinit var mPresenter: TeamDetailContract.Presenter
+    lateinit var mPresenter: DetailTeamView.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,18 +49,15 @@ class TeamDetailActivity : AppCompatActivity(), TeamDetailContract.View {
         loadImage()
 
         val localRepo = RepoFavorite(applicationContext)
-        mPresenter = TeamDetailPresenter(this, localRepo)
-//        mPresenter.checkTeam(team.idTeam)
+        mPresenter = DetailTeamPresenter(this, localRepo)
+        mPresenter.checkTeam(team.idTeam)
 
         val adapter = PagerAdapter(supportFragmentManager)
-        val teamFragment = TeamOvwFragment()
-//        val playersFragment = PlayersFragment()
+        val teamFragment = PreviewFragment()
         teamFragment.arguments = bundle
-//        playersFragment.arguments = bundle
-        adapter.populateFragment(teamFragment, "Team Overview")
-//        adapter.populateFragment(playersFragment, "Players")
-        viewpagerTeam.adapter = adapter
-        tabs.setupWithViewPager(viewpagerTeam)
+        adapter.populateFragment(teamFragment, "Team Preview")
+        pager.adapter = adapter
+        tabs.setupWithViewPager(pager)
     }
 
     private fun loadImage(){
@@ -70,13 +67,13 @@ class TeamDetailActivity : AppCompatActivity(), TeamDetailContract.View {
                 .apply(RequestOptions().placeholder(R.drawable.
                         ic_loading))
                 .apply(RequestOptions().override(220, 160))
-                .into(imageTeam)
+//                .into(imageTeam)
         }else{
             Glide.with(applicationContext)
                     .load(team.strTeamBadge)
                     .apply(RequestOptions().placeholder(R.drawable.ic_loading))
                     .apply(RequestOptions().override(120, 140))
-                    .into(imageTeam)
+//                    .into(imageTeam)
         }
     }
 
@@ -96,11 +93,11 @@ class TeamDetailActivity : AppCompatActivity(), TeamDetailContract.View {
             R.id.favorite -> {
                 if (!isFavorite){
                     mPresenter.insertTeam(team.idTeam, team.strTeamBadge)
-                    toast("Team added to favorite")
+                    toast("Team ditambahkan ke favorite")
                     isFavorite = !isFavorite
                 }else{
                     mPresenter.deleteTeam(team.idTeam)
-                    toast("Team removed from favorite")
+                    toast("Team di hapus dari favorite")
                     isFavorite = !isFavorite
                 }
                 setFavorite()

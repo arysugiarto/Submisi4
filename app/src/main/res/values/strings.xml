@@ -30,6 +30,9 @@
     <string name="ligagojek">Liga Gojek</string>
     <string name="favorite">Favorite</string>
     <string name="teams">Team</string>
+    <string name="namanya">Nama Team</string>
+    <string name="stadium">Stadium</string>
+    <string name="managernya">Managernya</string>
 
 
     <string-array name="league_name">

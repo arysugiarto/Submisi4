@@ -1,7 +1,7 @@
 package com.arysugiarto.submisi.footballmatchschedule.entity.repository
 
 import com.arysugiarto.submisi.footballmatchschedule.entity.db.DbFavoriteMatch
-import com.arysugiarto.submisi.footballmatchschedule.entity.db.FavoriteTeam
+import com.arysugiarto.submisi.footballmatchschedule.entity.db.DbFavoriteTeam
 
 interface LocalRepo {
     fun getMatchDb() : List<DbFavoriteMatch>
@@ -13,11 +13,11 @@ interface LocalRepo {
     fun favorite(eventId: String) : List<DbFavoriteMatch>
 
 
-    fun getTeamFromDb() : List<FavoriteTeam>
+    fun getTeamData() : List<DbFavoriteTeam>
 
-    fun insertTeamData(teamId: String, imgUrl: String)
+    fun insertTeam(teamId: String, imgUrl: String)
 
-    fun deleteTeamData(teamId: String)
+    fun deleteTeam(teamId: String)
 
-    fun checkFavTeam(teamId: String) : List<FavoriteTeam>
+    fun checkFav(teamId: String) : List<DbFavoriteTeam>
 }

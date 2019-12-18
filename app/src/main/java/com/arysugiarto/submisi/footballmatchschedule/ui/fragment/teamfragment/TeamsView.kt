@@ -4,7 +4,7 @@ import com.arysugiarto.submisi.footballmatchschedule.entity.Team
 
 
 
-interface TeamsContract {
+interface TeamsView {
     interface View{
         fun displayTeams(teamList: List<Team>)
         fun hideLoading()

@@ -1,4 +1,4 @@
-package com.arysugiarto.submisi.footballmatchschedule.ui.fragment.favteam
+package com.arysugiarto.submisi.footballmatchschedule.ui.fragment.favoriteteam
 
 
 import android.os.Bundle
@@ -14,7 +14,7 @@ import com.arysugiarto.submisi.footballmatchschedule.api.ApiService
 import com.arysugiarto.submisi.footballmatchschedule.api.RestApi
 import com.arysugiarto.submisi.footballmatchschedule.entity.Team
 import com.arysugiarto.submisi.footballmatchschedule.entity.repository.RepoFavorite
-import com.arysugiarto.submisi.footballmatchschedule.entity.repository.TeamRepositoryImpl
+import com.arysugiarto.submisi.footballmatchschedule.entity.repository.TeamRepository
 import com.arysugiarto.submisi.footballmatchschedule.extensions.hide
 import com.arysugiarto.submisi.footballmatchschedule.extensions.show
 import com.arysugiarto.submisi.footballmatchschedule.utils.AppSchedulerProvider
@@ -37,7 +37,7 @@ class FavoriteTeamFragment : Fragment(), FavoriteTeamContract.View {
         super.onActivityCreated(savedInstanceState)
         val sercive = ApiService.getClient().create(RestApi::class.java)
         val localRepositoryImpl = RepoFavorite(context!!)
-        val teamRepositoryImpl = TeamRepositoryImpl(sercive)
+        val teamRepositoryImpl = TeamRepository(sercive)
         val scheduler = AppSchedulerProvider()
         mPresenter = FavoriteTeamPresenter(this, localRepositoryImpl, teamRepositoryImpl, scheduler)
         mPresenter.getTeamData()

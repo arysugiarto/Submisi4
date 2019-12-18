@@ -25,18 +25,17 @@ class Databasehelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "Favorite.db",
             DbFavoriteMatch.ID_TEAM_KANDANG to TEXT,
             DbFavoriteMatch.ID_TEAM_TANDANG to TEXT
         )
-        position.createTable(FavoriteTeam.TEAM, true,
-            FavoriteTeam.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
-            FavoriteTeam.TEAM_ID to TEXT,
-            FavoriteTeam.TEAM_IMAGE to TEXT)
+        position.createTable(DbFavoriteTeam.TEAM_TABLE, true,
+            DbFavoriteTeam.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
+            DbFavoriteTeam.TEAM_ID to TEXT,
+            DbFavoriteTeam.TEAM_IMAGE to TEXT)
     }
 
 
     override fun onUpgrade(position0: SQLiteDatabase, p1: Int, p2: Int) {
         position0.dropTable(DbFavoriteMatch.TB_FAVORITE, true)
-        position0.dropTable(FavoriteTeam.TEAM, true)
+        position0.dropTable(DbFavoriteTeam.TEAM_TABLE, true)
     }
 }
-// Access property for Context
 val Context.database: Databasehelper
     get() = Databasehelper.getInstance(applicationContext)

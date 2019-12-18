@@ -10,7 +10,7 @@ import android.view.ViewGroup
 
 import com.arysugiarto.submisi.footballmatchschedule.R
 import com.arysugiarto.submisi.footballmatchschedule.ui.fragment.favoritepertandingan.MatchFavoriteFragment
-import com.arysugiarto.submisi.footballmatchschedule.ui.fragment.favteam.FavoriteTeamFragment
+import com.arysugiarto.submisi.footballmatchschedule.ui.fragment.favoriteteam.FavoriteTeamFragment
 
 
 class FavoriteMainFragment : Fragment() {

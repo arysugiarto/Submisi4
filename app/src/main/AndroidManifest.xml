@@ -18,7 +18,7 @@
             android:parentActivityName="com.arysugiarto.submisi.footballmatchschedule.ui.main.MainActivity" />
         <activity android:name="com.arysugiarto.submisi.footballmatchschedule.ui.detail.DetailMatchActivity"
             android:parentActivityName="com.arysugiarto.submisi.footballmatchschedule.ui.main.MainActivity" />
-        <activity android:name="com.arysugiarto.submisi.footballmatchschedule.ui.detail.teamdetail.TeamDetailActivity"
+        <activity android:name="com.arysugiarto.submisi.footballmatchschedule.ui.detail.teamdetailactivity.DetailTeamActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:parentActivityName="com.arysugiarto.submisi.footballmatchschedule.ui.main.MainActivity" />
         <activity

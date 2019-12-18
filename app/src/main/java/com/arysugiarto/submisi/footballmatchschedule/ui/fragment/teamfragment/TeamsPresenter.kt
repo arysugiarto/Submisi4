@@ -2,7 +2,7 @@ package com.rahmat.app.footballclub.feature.team
 
 
 import com.arysugiarto.submisi.footballmatchschedule.entity.TeamResponseDetail
-import com.arysugiarto.submisi.footballmatchschedule.entity.repository.TeamRepositoryImpl
+import com.arysugiarto.submisi.footballmatchschedule.entity.repository.TeamRepository
 import com.arysugiarto.submisi.footballmatchschedule.utils.SchedulerProvider
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.subscribers.ResourceSubscriber
@@ -11,14 +11,14 @@ import java.util.*
 /**
  * Created by muhrahmatullah on 10/09/18.
  */
-class TeamsPresenter(val mView : TeamsContract.View, val teamRepositoryImpl: TeamRepositoryImpl,
+class TeamsPresenter(val mView : TeamsView.View, val teamRepository: TeamRepository,
                      val scheduler: SchedulerProvider
-): TeamsContract.Presenter {
+): TeamsView.Presenter {
 
 
     override fun searchTeam(teamName: String) {
 //        mView.showLoading()
-        compositeDisposable.add(teamRepositoryImpl.getTeamBySearch(teamName)
+        compositeDisposable.add(teamRepository.getTeamBySearch(teamName)
                 .observeOn(scheduler.ui())
                 .subscribeOn(scheduler.io())
                 .subscribeWith(object: ResourceSubscriber<TeamResponseDetail>(){
@@ -42,7 +42,7 @@ class TeamsPresenter(val mView : TeamsContract.View, val teamRepositoryImpl: Tea
     val compositeDisposable = CompositeDisposable()
     override fun getTeamData(leagueName: String) {
         mView.showLoading()
-        compositeDisposable.add(teamRepositoryImpl.getAllTeam(leagueName)
+        compositeDisposable.add(teamRepository.getAllTeam(leagueName)
                 .observeOn(scheduler.ui())
                 .subscribeOn(scheduler.io())
                 .subscribeWith(object: ResourceSubscriber<TeamResponseDetail>(){
