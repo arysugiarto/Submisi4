@@ -1,4 +1,4 @@
-package com.rahmat.app.footballclub.feature.team
+package com.arysugiarto.submisi.footballmatchschedule.ui.fragment.teamfragment
 
 import com.arysugiarto.submisi.footballmatchschedule.entity.Team
 

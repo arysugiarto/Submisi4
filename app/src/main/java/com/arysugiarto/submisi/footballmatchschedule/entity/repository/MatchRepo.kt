@@ -13,5 +13,6 @@ interface MatchRepo {
     fun getNextMatch(id : String) : Flowable<Match>
 
     fun searchMatches(query: String?) : Flowable<SearchedMatches>
+
     fun getEventById(id: String) : Flowable<Match>
 }

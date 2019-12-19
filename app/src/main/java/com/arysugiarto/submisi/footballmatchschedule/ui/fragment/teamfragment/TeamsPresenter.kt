@@ -1,4 +1,4 @@
-package com.rahmat.app.footballclub.feature.team
+package com.arysugiarto.submisi.footballmatchschedule.ui.fragment.teamfragment
 
 
 import com.arysugiarto.submisi.footballmatchschedule.entity.TeamResponseDetail
@@ -8,9 +8,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.subscribers.ResourceSubscriber
 import java.util.*
 
-/**
- * Created by muhrahmatullah on 10/09/18.
- */
+
 class TeamsPresenter(val mView : TeamsView.View, val teamRepository: TeamRepository,
                      val scheduler: SchedulerProvider
 ): TeamsView.Presenter {

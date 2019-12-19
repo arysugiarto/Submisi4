@@ -22,7 +22,6 @@ interface RestApi {
     @GET("api/v1/json/1/lookupleague.php")
     fun getDetailLeugue(@Query("id") id_league : String) : Call<LeagueDetailRespon>
 
-
     @GET("lookupevent.php")
     fun getEventById(@Query("id") id:String) : Flowable<Match>
 
@@ -33,6 +32,9 @@ interface RestApi {
 
     @GET("lookup_all_teams.php")
     fun getAllTeam(@Query("id") id:String) : Flowable<TeamResponseDetail>
+
+    @GET("lookuptable.php")
+    fun getKalsemen(@Query("id") id:String) : Flowable<Kalsemen>
 
 
 

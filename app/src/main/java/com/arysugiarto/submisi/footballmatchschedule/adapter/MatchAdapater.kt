@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.arysugiarto.submisi.footballmatchschedule.R
 import com.arysugiarto.submisi.footballmatchschedule.entity.List
+
+
 import com.arysugiarto.submisi.footballmatchschedule.ui.detail.DetailMatchActivity
 import kotlinx.android.synthetic.main.item_last.view.*
 import org.jetbrains.anko.startActivity
@@ -31,9 +33,6 @@ class MatchAdapater(
 
     inner class MatchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(event: List){
-//            if (event.strSport != "Soccer") {
-//                Log.e("Not Soccer", "Pertandingan bukan sepakbola")
-//            } else {
                 itemView.date.text = event.dateEvent
                 itemView.tvNameHome.text = event.strHomeTeam
                 itemView.tvHomeScore.text = event.intHomeScore
@@ -42,10 +41,7 @@ class MatchAdapater(
 
                 itemView.setOnClickListener {
                     itemView.context.startActivity<DetailMatchActivity>("match" to event)
-//                    listener(event)
                 }
             }
         }
     }
-
-//}

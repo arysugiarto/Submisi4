@@ -14,6 +14,12 @@
         android:icon="@drawable/ic_ball"
         app:showAsAction="ifRoom"/>
     <item
+        android:id="@+id/Kalsemen"
+        android:enabled="true"
+        android:title="@string/teams"
+        android:icon="@drawable/ic_ball"
+        app:showAsAction="ifRoom"/>
+    <item
         android:id="@+id/fav"
         android:enabled="true"
         android:icon="@drawable/ic_added_fav_24dp"

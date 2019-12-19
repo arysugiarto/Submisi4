@@ -8,7 +8,9 @@ import com.arysugiarto.submisi.footballmatchschedule.R
 import com.arysugiarto.submisi.footballmatchschedule.ui.fragment.FavoriteMainFragment
 import com.arysugiarto.submisi.footballmatchschedule.ui.fragment.LeagueActivity
 import com.arysugiarto.submisi.footballmatchschedule.ui.fragment.MainFragment
-import com.rahmat.app.footballclub.feature.team.TeamsFragment
+import com.arysugiarto.submisi.footballmatchschedule.ui.fragment.kalsemenfragment.KalsemenFragment
+import com.arysugiarto.submisi.footballmatchschedule.ui.fragment.teamfragment.TeamsFragment
+
 import kotlinx.android.synthetic.main.bottom_navigation.*
 import kotlinx.android.synthetic.main.home_activity.*
 
@@ -29,6 +31,9 @@ class MainActivity : AppCompatActivity(), MainView.View {
                 }
                 R.id.team -> {
                     loadTeam(savedInstanceState)
+                }
+                R.id.Kalsemen -> {
+                    loadKalsemen(savedInstanceState)
                 }
                 R.id.listLiga -> {
                     val intent = Intent(this, LeagueActivity::class.java)
@@ -66,6 +71,14 @@ class MainActivity : AppCompatActivity(), MainView.View {
             supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.main_container, TeamsFragment(), TeamsFragment::class.java.simpleName)
+                .commit()
+        }
+    }
+    private fun loadKalsemen(savedInstanceState: Bundle?) {
+        if (savedInstanceState == null) {
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.main_container, KalsemenFragment(), KalsemenFragment::class.java.simpleName)
                 .commit()
         }
     }

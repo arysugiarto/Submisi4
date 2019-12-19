@@ -8,6 +8,7 @@ import android.view.*
 import android.support.v7.widget.SearchView
 import com.arysugiarto.submisi.footballmatchschedule.R
 import com.arysugiarto.submisi.footballmatchschedule.adapter.PagerAdapter
+import com.arysugiarto.submisi.footballmatchschedule.ui.fragment.kalsemenfragment.KalsemenFragment
 import com.arysugiarto.submisi.footballmatchschedule.ui.fragment.lastfragment.LastFragment
 import com.arysugiarto.submisi.footballmatchschedule.ui.fragment.nextfragment.NextFragment
 import com.arysugiarto.submisi.footballmatchschedule.ui.search.SearchActivity
@@ -28,6 +29,7 @@ class  MainFragment : Fragment() {
         setHasOptionsMenu(true)
         adapter.populateFragment(LastFragment(), "Last Match")
         adapter.populateFragment(NextFragment(), "Next match")
+//        adapter.populateFragment(KalsemenFragment(), "Kalsemen")
         viewPager.adapter = adapter
         tabs.setupWithViewPager(viewPager)
     }

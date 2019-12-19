@@ -1,4 +1,4 @@
-package com.rahmat.app.footballclub.feature.team
+package com.arysugiarto.submisi.footballmatchschedule.ui.fragment.teamfragment
 
 
 import android.content.Context
@@ -20,6 +20,7 @@ import com.arysugiarto.submisi.footballmatchschedule.entity.Team
 import com.arysugiarto.submisi.footballmatchschedule.entity.repository.TeamRepository
 import com.arysugiarto.submisi.footballmatchschedule.extensions.hide
 import com.arysugiarto.submisi.footballmatchschedule.extensions.show
+
 import com.arysugiarto.submisi.footballmatchschedule.utils.AppSchedulerProvider
 
 import kotlinx.android.synthetic.main.fragment_teams.*
